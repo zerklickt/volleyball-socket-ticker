@@ -11,11 +11,12 @@ let scoreHome = 0;
 let scoreGuest = 0;
 let setHome = 0;
 let setGuest = 0;
+let service = "team1";
 
 let lastEvent = "";
 
 //console.log(process.argv.length);
-if(process.argv.length != 3){
+if(process.argv.length != 4){
     process.exit();
 }
 
@@ -23,6 +24,7 @@ io.on('connection', (socket) => {
   console.log('A user connected');
 
   socket.emit('scoreUpdate', { scoreHome, scoreGuest, setHome, setGuest });
+  socket.emit('teamUpdate', {guestTeam: process.argv[3]});
 
   socket.on('disconnect', () => {
     console.log('A user disconnected');
@@ -30,11 +32,22 @@ io.on('connection', (socket) => {
 });
 
 ws.on('message', (data) => {
-    const jsonobj = JSON.parse(data).payload.matchStates[process.argv[2]];
-    console.log("updated");
-    updateScore(jsonobj);
-    io.emit('scoreUpdate', { scoreHome, scoreGuest, setHome, setGuest });
-    handleEventUpdate(jsonobj);
+
+    const jsonobj = JSON.parse(data);
+    let messageType = jsonobj.type;
+    switch(messageType){
+        case "MATCH_UPDATE":
+            if(jsonobj.payload.matchUuid != process.argv[2])
+                return;
+            break;
+        default:
+            return;
+    }
+    let newjsonobj = jsonobj.payload;
+    //console.log("updated");
+    updateScore(newjsonobj);
+    io.emit('scoreUpdate', { scoreHome, scoreGuest, setHome, setGuest, service });
+    handleEventUpdate(newjsonobj);
 });
 
 function updateScore(jsonobj){
@@ -42,6 +55,7 @@ function updateScore(jsonobj){
     scoreGuest = jsonobj.matchSets[jsonobj.matchSets.length - 1].setScore.team2;
     setHome = jsonobj.setPoints.team1;
     setGuest = jsonobj.setPoints.team2;
+    service = jsonobj.serving;
 }
 
 function handleEventUpdate(jsonobj){

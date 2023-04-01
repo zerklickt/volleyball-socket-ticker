@@ -13,7 +13,7 @@ wss.on('connection', function connection(ws) {
   // Send the contents of data.json every 20 seconds
   const intervalId = setInterval(() => {
     try {
-      const data = fs.readFileSync('./data.json', 'utf8');
+      const data = fs.readFileSync('./data2.json', 'utf8');
       ws.send(data);
     } catch (err) {
       console.error(`Error reading data.json: ${err}`);

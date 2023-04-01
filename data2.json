@@ -1,0 +1,790 @@
+{
+    "type": "MATCH_UPDATE",
+    "payload": {
+        "matchUuid": "41655573-fa3c-4c2b-9d7a-2ef540c73d92",
+        "matchSeriesUuid": "caa4f32e-0913-4826-a24d-0aac91c93697",
+        "finished": false,
+        "finalized": false,
+        "started": true,
+        "ready": true,
+        "teamSides": {
+            "leftTeam": "team1",
+            "rightTeam": "team2"
+        },
+        "scoresheetPdfUrl": "https://distributor.sams-score.de/scoresheet/pdf/41655573-fa3c-4c2b-9d7a-2ef540c73d92/2.pdf",
+        "setPoints": {
+            "team1": 0,
+            "team2": 1
+        },
+        "matchSets": [
+            {
+                "setScore": {
+                    "team1": 20,
+                    "team2": 25
+                },
+                "setNumber": 1
+            },
+            {
+                "setScore": {
+                    "team1": 9,
+                    "team2": 13
+                },
+                "setNumber": 2
+            }
+        ],
+        "eventHistory": [
+            {
+                "uuid": "67258a6d-7196-405a-9e22-3404673f36d2",
+                "setScore": {
+                    "team1": 9,
+                    "team2": 13
+                },
+                "setPoints": {
+                    "team1": 0,
+                    "team2": 1
+                },
+                "timestamp": 1680347119367,
+                "teamCode": "team1",
+                "numberOfSetBalls": 6,
+                "type": "START_TIMEOUT"
+            },
+            {
+                "uuid": "bd67700b-b750-421e-885f-b38fc41f61fb",
+                "setNumber": 2,
+                "setScore": {
+                    "team1": 0,
+                    "team2": 0
+                },
+                "setPoints": {
+                    "team1": 0,
+                    "team2": 1
+                },
+                "timestamp": 1680347449247,
+                "lineups": {
+                    "team1": {
+                        "playerUuids": [
+                            "4d15b89f-d314-4953-b73b-7b6a83a73048",
+                            "73de361c-aac7-4d15-91f3-3b2cc59c4e89",
+                            "43ba09c3-e88d-40b3-ae61-7e4210c8a559",
+                            "f836155e-4072-447f-a497-6f3b549b8fc5",
+                            "9732e80b-050b-428b-8a41-f28c299c0fe7",
+                            "72d6e9d9-bdb3-498f-a0c7-a3a7588363d9"
+                        ],
+                        "defaultLiberoUuid": null
+                    },
+                    "team2": {
+                        "playerUuids": [
+                            "95e758a9-5701-4b6e-8a64-620e4a438ea5",
+                            "4604086c-0318-48cf-8d43-303927551a30",
+                            "53522b0d-4496-44df-9e9f-2a17d15aee4f",
+                            "c3ab355b-9e08-41d9-86e3-d36dda81e4a0",
+                            "c9788717-b3fb-4a40-945c-2ccfb377fce4",
+                            "9bbe5371-9231-4157-913b-a7f25df5f6d0"
+                        ],
+                        "defaultLiberoUuid": "8c13a577-a381-468c-b2a6-85dc91401f41"
+                    }
+                },
+                "type": "START_SET"
+            },
+            {
+                "uuid": "e63da7ea-1816-4c84-91bc-872526dd3204",
+                "setScore": {
+                    "team1": 20,
+                    "team2": 25
+                },
+                "setPoints": {
+                    "team1": 0,
+                    "team2": 1
+                },
+                "timestamp": 1680347248930,
+                "teamCode": "team2",
+                "setNumber": 2,
+                "type": "SET_BALL_SUCCESS"
+            },
+            {
+                "uuid": "eb7b5876-51d9-488c-bee3-3b49f3e4d6c1",
+                "setScore": {
+                    "team1": 20,
+                    "team2": 24
+                },
+                "setPoints": {
+                    "team1": 0,
+                    "team2": 0
+                },
+                "timestamp": 1680347191357,
+                "teamCode": "team2",
+                "durationSeconds": 30,
+                "type": "START_TIMEOUT"
+            },
+            {
+                "uuid": "5996ff86-2cb0-487e-8188-4a1efc227b8c",
+                "setScore": {
+                    "team1": 20,
+                    "team2": 24
+                },
+                "setPoints": {
+                    "team1": 0,
+                    "team2": 0
+                },
+                "timestamp": 1680347177440,
+                "teamCode": "team2",
+                "numberOfSetBalls": 4,
+                "type": "SET_BALL"
+            },
+            {
+                "uuid": "e2e520f1-0b8d-460c-b3dc-dcff3a9b0639",
+                "setScore": {
+                    "team1": 19,
+                    "team2": 24
+                },
+                "setPoints": {
+                    "team1": 0,
+                    "team2": 0
+                },
+                "timestamp": 1680347144845,
+                "teamCode": "team2",
+                "numberOfSetBalls": 5,
+                "type": "SET_BALL"
+            },
+            {
+                "uuid": "67169a5d-7196-405a-9e22-3404673f36d2",
+                "setScore": {
+                    "team1": 18,
+                    "team2": 24
+                },
+                "setPoints": {
+                    "team1": 0,
+                    "team2": 0
+                },
+                "timestamp": 1680347119367,
+                "teamCode": "team2",
+                "numberOfSetBalls": 6,
+                "type": "SET_BALL"
+            },
+            {
+                "uuid": "d079a1bd-658f-45cc-93f9-b38bfcaa1b68",
+                "setScore": {
+                    "team1": 16,
+                    "team2": 22
+                },
+                "setPoints": {
+                    "team1": 0,
+                    "team2": 0
+                },
+                "timestamp": 1680347015669,
+                "teamCode": "team2",
+                "setNumber": 1,
+                "type": "SCORE",
+                "streak": 5
+            },
+            {
+                "uuid": "ce4a0749-fcb1-4c80-a7b9-2701684d18a2",
+                "setScore": {
+                    "team1": 16,
+                    "team2": 21
+                },
+                "setPoints": {
+                    "team1": 0,
+                    "team2": 0
+                },
+                "timestamp": 1680346958201,
+                "teamCode": "team1",
+                "durationSeconds": 30,
+                "type": "START_TIMEOUT"
+            },
+            {
+                "uuid": "cd557104-6317-4659-8f5e-c5d08187b39e",
+                "setScore": {
+                    "team1": 16,
+                    "team2": 20
+                },
+                "setPoints": {
+                    "team1": 0,
+                    "team2": 0
+                },
+                "timestamp": 1680346925773,
+                "teamCode": "team2",
+                "setNumber": 1,
+                "type": "SCORE",
+                "streak": 3
+            },
+            {
+                "uuid": "2d7655b4-80b0-46f6-8d7d-866a9839eb6e",
+                "setScore": {
+                    "team1": 16,
+                    "team2": 19
+                },
+                "setPoints": {
+                    "team1": 0,
+                    "team2": 0
+                },
+                "timestamp": 1680346898019,
+                "teamCode": "team1",
+                "playerInUuid": "73de361c-aac7-4d15-91f3-3b2cc59c4e89",
+                "playerOutUuid": "e3ce162a-4395-4a0b-a804-0aada7118ea2",
+                "lineup": {
+                    "playerUuids": [
+                        "2180e643-c2c6-4ae4-bcda-8778570b86d3",
+                        "f836155e-4072-447f-a497-6f3b549b8fc5",
+                        "9732e80b-050b-428b-8a41-f28c299c0fe7",
+                        "72d6e9d9-bdb3-498f-a0c7-a3a7588363d9",
+                        "4d15b89f-d314-4953-b73b-7b6a83a73048",
+                        "73de361c-aac7-4d15-91f3-3b2cc59c4e89"
+                    ],
+                    "defaultLiberoUuid": null
+                },
+                "type": "SUBSTITUTION"
+            },
+            {
+                "uuid": "332df1c7-1709-4a4f-8577-2ebfdb0cd84c",
+                "setScore": {
+                    "team1": 15,
+                    "team2": 17
+                },
+                "setPoints": {
+                    "team1": 0,
+                    "team2": 0
+                },
+                "timestamp": 1680346775926,
+                "teamCode": "team2",
+                "setNumber": 1,
+                "type": "SCORE",
+                "streak": 3
+            },
+            {
+                "uuid": "7ea66ba3-6f64-42d5-9ded-4e3285f304dd",
+                "setScore": {
+                    "team1": 12,
+                    "team2": 13
+                },
+                "setPoints": {
+                    "team1": 0,
+                    "team2": 0
+                },
+                "timestamp": 1680346525020,
+                "teamCode": "team1",
+                "durationSeconds": 30,
+                "type": "START_TIMEOUT"
+            },
+            {
+                "uuid": "091b30f0-90ef-4adc-b0b1-d16d2413e648",
+                "setScore": {
+                    "team1": 12,
+                    "team2": 13
+                },
+                "setPoints": {
+                    "team1": 0,
+                    "team2": 0
+                },
+                "timestamp": 1680346519363,
+                "teamCode": "team2",
+                "setNumber": 1,
+                "type": "SCORE",
+                "streak": 5
+            },
+            {
+                "uuid": "641706f9-d685-4b99-831f-bd114aa2a088",
+                "setScore": {
+                    "team1": 12,
+                    "team2": 11
+                },
+                "setPoints": {
+                    "team1": 0,
+                    "team2": 0
+                },
+                "timestamp": 1680346473744,
+                "teamCode": "team2",
+                "setNumber": 1,
+                "type": "SCORE",
+                "streak": 3
+            },
+            {
+                "uuid": "0ee14d9c-5fa7-406a-a34f-5eb7c629ace6",
+                "setScore": {
+                    "team1": 9,
+                    "team2": 7
+                },
+                "setPoints": {
+                    "team1": 0,
+                    "team2": 0
+                },
+                "timestamp": 1680346280147,
+                "teamCode": "team2",
+                "setNumber": 1,
+                "type": "SCORE",
+                "streak": 3
+            },
+            {
+                "uuid": "0e269f1b-23ae-47ed-aa65-69dfc4b07553",
+                "setScore": {
+                    "team1": 8,
+                    "team2": 4
+                },
+                "setPoints": {
+                    "team1": 0,
+                    "team2": 0
+                },
+                "timestamp": 1680346188039,
+                "teamCode": "team1",
+                "setNumber": 1,
+                "type": "SCORE",
+                "streak": 5
+            },
+            {
+                "uuid": "2a314ac4-3ae1-4957-b3a6-4514eee2504c",
+                "setScore": {
+                    "team1": 7,
+                    "team2": 4
+                },
+                "setPoints": {
+                    "team1": 0,
+                    "team2": 0
+                },
+                "timestamp": 1680346127718,
+                "teamCode": "team2",
+                "durationSeconds": 30,
+                "type": "START_TIMEOUT"
+            },
+            {
+                "uuid": "0a4988d7-51ab-409c-9192-72ab91dbed68",
+                "setScore": {
+                    "team1": 6,
+                    "team2": 4
+                },
+                "setPoints": {
+                    "team1": 0,
+                    "team2": 0
+                },
+                "timestamp": 1680346084245,
+                "teamCode": "team1",
+                "setNumber": 1,
+                "type": "SCORE",
+                "streak": 3
+            },
+            {
+                "uuid": "332f58d8-9c31-4a42-a2cd-1ccfbee863b8",
+                "setScore": {
+                    "team1": 0,
+                    "team2": 0
+                },
+                "setPoints": {
+                    "team1": 0,
+                    "team2": 0
+                },
+                "timestamp": 1680345813941,
+                "lineups": {
+                    "team1": {
+                        "playerUuids": [
+                            "4d15b89f-d314-4953-b73b-7b6a83a73048",
+                            "e3ce162a-4395-4a0b-a804-0aada7118ea2",
+                            "43ba09c3-e88d-40b3-ae61-7e4210c8a559",
+                            "f836155e-4072-447f-a497-6f3b549b8fc5",
+                            "9732e80b-050b-428b-8a41-f28c299c0fe7",
+                            "72d6e9d9-bdb3-498f-a0c7-a3a7588363d9"
+                        ],
+                        "defaultLiberoUuid": null
+                    },
+                    "team2": {
+                        "playerUuids": [
+                            "4604086c-0318-48cf-8d43-303927551a30",
+                            "53522b0d-4496-44df-9e9f-2a17d15aee4f",
+                            "c3ab355b-9e08-41d9-86e3-d36dda81e4a0",
+                            "c9788717-b3fb-4a40-945c-2ccfb377fce4",
+                            "9bbe5371-9231-4157-913b-a7f25df5f6d0",
+                            "95e758a9-5701-4b6e-8a64-620e4a438ea5"
+                        ],
+                        "defaultLiberoUuid": "8c13a577-a381-468c-b2a6-85dc91401f41"
+                    }
+                },
+                "type": "START_MATCH"
+            },
+            {
+                "uuid": "5259d004-32d8-4188-8f1d-3f16f3f43401",
+                "setScore": {
+                    "team1": 0,
+                    "team2": 0
+                },
+                "setPoints": {
+                    "team1": 0,
+                    "team2": 0
+                },
+                "timestamp": 1680345401932,
+                "arbitration": {
+                    "firstReferee": {
+                        "firstName": "Daniel",
+                        "lastName": "Schumacher"
+                    },
+                    "secondReferee": {
+                        "firstName": "Michael",
+                        "lastName": "Fröhlich"
+                    },
+                    "firstLinesman": null,
+                    "secondLinesman": null,
+                    "thirdLinesman": null,
+                    "fourthLinesman": null,
+                    "observer": null,
+                    "scorer": {
+                        "firstName": "Andreas",
+                        "lastName": "Sinke"
+                    },
+                    "scorerAssistant": {
+                        "firstName": "Peter",
+                        "lastName": "Mähl"
+                    },
+                    "supervisor": null
+                },
+                "type": "CONFIRM_ARBITRATION"
+            },
+            {
+                "uuid": "438fe674-b882-47fa-be07-744a27d90853",
+                "setScore": {
+                    "team1": 0,
+                    "team2": 0
+                },
+                "setPoints": {
+                    "team1": 0,
+                    "team2": 0
+                },
+                "timestamp": 1680345113593,
+                "teamCode": "team1",
+                "teamSquad": {
+                    "players": [
+                        {
+                            "uuid": "f836155e-4072-447f-a497-6f3b549b8fc5",
+                            "firstName": "Mathias",
+                            "lastName": "Ahlf",
+                            "position": null,
+                            "jerseyNumber": "10",
+                            "portraitPhoto": null
+                        },
+                        {
+                            "uuid": "6c8eaca3-8b43-4f7b-93d4-52d51181293d",
+                            "firstName": "Markus",
+                            "lastName": "Doberstein",
+                            "position": null,
+                            "jerseyNumber": "3",
+                            "portraitPhoto": null
+                        },
+                        {
+                            "uuid": "723bc9b3-087e-42df-9cf8-1429caa6f672",
+                            "firstName": "Karsten",
+                            "lastName": "Hacker",
+                            "position": null,
+                            "jerseyNumber": "17",
+                            "portraitPhoto": null
+                        },
+                        {
+                            "uuid": "9732e80b-050b-428b-8a41-f28c299c0fe7",
+                            "firstName": "Thomas",
+                            "lastName": "Hildebrandt",
+                            "position": null,
+                            "jerseyNumber": "6",
+                            "portraitPhoto": null
+                        },
+                        {
+                            "uuid": "4d15b89f-d314-4953-b73b-7b6a83a73048",
+                            "firstName": "Sebastian",
+                            "lastName": "Lemke",
+                            "position": null,
+                            "jerseyNumber": "9",
+                            "portraitPhoto": null
+                        },
+                        {
+                            "uuid": "f399ddb3-5183-4045-93f8-f283fbff706f",
+                            "firstName": "Carsten",
+                            "lastName": "Münch",
+                            "position": null,
+                            "jerseyNumber": "7",
+                            "portraitPhoto": null
+                        },
+                        {
+                            "uuid": "e3ce162a-4395-4a0b-a804-0aada7118ea2",
+                            "firstName": "Andre",
+                            "lastName": "Rübensam",
+                            "position": null,
+                            "jerseyNumber": "11",
+                            "portraitPhoto": null
+                        },
+                        {
+                            "uuid": "73de361c-aac7-4d15-91f3-3b2cc59c4e89",
+                            "firstName": "Philipp",
+                            "lastName": "Struwe",
+                            "position": null,
+                            "jerseyNumber": "2",
+                            "portraitPhoto": null
+                        },
+                        {
+                            "uuid": "13714edd-788d-47e8-a309-09876eab062e",
+                            "firstName": "Timo",
+                            "lastName": "Timpe",
+                            "position": null,
+                            "jerseyNumber": "12",
+                            "portraitPhoto": null
+                        },
+                        {
+                            "uuid": "43ba09c3-e88d-40b3-ae61-7e4210c8a559",
+                            "firstName": "Steffen",
+                            "lastName": "Trommeshauser",
+                            "position": null,
+                            "jerseyNumber": "19",
+                            "portraitPhoto": null
+                        },
+                        {
+                            "uuid": "72d6e9d9-bdb3-498f-a0c7-a3a7588363d9",
+                            "firstName": "Michael",
+                            "lastName": "Träger",
+                            "position": null,
+                            "jerseyNumber": "15",
+                            "portraitPhoto": null
+                        },
+                        {
+                            "uuid": "2180e643-c2c6-4ae4-bcda-8778570b86d3",
+                            "firstName": "Stephan",
+                            "lastName": "Wendt",
+                            "position": null,
+                            "jerseyNumber": "14",
+                            "portraitPhoto": null
+                        },
+                        {
+                            "uuid": "e28fcc74-0c5b-48ab-bba8-39fa4b5e143d",
+                            "firstName": "Konstantin",
+                            "lastName": "Wulff",
+                            "position": null,
+                            "jerseyNumber": "8",
+                            "portraitPhoto": null
+                        }
+                    ],
+                    "liberos": [
+                        {
+                            "uuid": "2180e643-c2c6-4ae4-bcda-8778570b86d3",
+                            "firstName": "Stephan",
+                            "lastName": "Wendt",
+                            "position": null,
+                            "jerseyNumber": "14",
+                            "portraitPhoto": null
+                        },
+                        {
+                            "uuid": "e28fcc74-0c5b-48ab-bba8-39fa4b5e143d",
+                            "firstName": "Konstantin",
+                            "lastName": "Wulff",
+                            "position": null,
+                            "jerseyNumber": "8",
+                            "portraitPhoto": null
+                        }
+                    ],
+                    "captain": {
+                        "uuid": "6c8eaca3-8b43-4f7b-93d4-52d51181293d",
+                        "firstName": "Markus",
+                        "lastName": "Doberstein",
+                        "position": null,
+                        "jerseyNumber": "3",
+                        "portraitPhoto": null
+                    },
+                    "officials": [
+                        {
+                            "uuid": "b1cd91bf-a355-4adf-9781-2f451b9307c4",
+                            "firstName": "Horst",
+                            "lastName": "Holz",
+                            "function": "TRAINER",
+                            "portraitPhoto": null
+                        },
+                        {
+                            "uuid": "5b04c025-0dcf-417f-9512-cac928ca055f",
+                            "firstName": "Stefan",
+                            "lastName": "Lemke",
+                            "function": "TRAINER_ASSISTANT",
+                            "portraitPhoto": null
+                        }
+                    ]
+                },
+                "type": "CONFIRM_TEAMSQUAD"
+            },
+            {
+                "uuid": "bbb63988-b7de-461d-879b-8cf4176c0a18",
+                "setScore": {
+                    "team1": 0,
+                    "team2": 0
+                },
+                "setPoints": {
+                    "team1": 0,
+                    "team2": 0
+                },
+                "timestamp": 1680344799784,
+                "teamCode": "team2",
+                "teamSquad": {
+                    "players": [
+                        {
+                            "uuid": "4604086c-0318-48cf-8d43-303927551a30",
+                            "firstName": "Rüdiger",
+                            "lastName": "Barth",
+                            "position": null,
+                            "jerseyNumber": "10",
+                            "portraitPhoto": null
+                        },
+                        {
+                            "uuid": "4d2ce43c-e41e-4d79-8808-21b6a7aef5f5",
+                            "firstName": "Tobias",
+                            "lastName": "Beiersdorf",
+                            "position": null,
+                            "jerseyNumber": "6",
+                            "portraitPhoto": null
+                        },
+                        {
+                            "uuid": "53522b0d-4496-44df-9e9f-2a17d15aee4f",
+                            "firstName": "Jan",
+                            "lastName": "Buhrmester",
+                            "position": null,
+                            "jerseyNumber": "4",
+                            "portraitPhoto": null
+                        },
+                        {
+                            "uuid": "8c13a577-a381-468c-b2a6-85dc91401f41",
+                            "firstName": "Hendrik",
+                            "lastName": "Hofmann",
+                            "position": null,
+                            "jerseyNumber": "15",
+                            "portraitPhoto": null
+                        },
+                        {
+                            "uuid": "95e758a9-5701-4b6e-8a64-620e4a438ea5",
+                            "firstName": "Martin",
+                            "lastName": "Kauffeldt",
+                            "position": null,
+                            "jerseyNumber": "5",
+                            "portraitPhoto": null
+                        },
+                        {
+                            "uuid": "476a55fe-52df-4d7d-a85d-3989d3aa9519",
+                            "firstName": "Arne",
+                            "lastName": "Kämpfer",
+                            "position": null,
+                            "jerseyNumber": "40",
+                            "portraitPhoto": null
+                        },
+                        {
+                            "uuid": "9bbe5371-9231-4157-913b-a7f25df5f6d0",
+                            "firstName": "Fridolin",
+                            "lastName": "Lippens",
+                            "position": null,
+                            "jerseyNumber": "3",
+                            "portraitPhoto": null
+                        },
+                        {
+                            "uuid": "c3ab355b-9e08-41d9-86e3-d36dda81e4a0",
+                            "firstName": "Lars",
+                            "lastName": "Loßin",
+                            "position": null,
+                            "jerseyNumber": "23",
+                            "portraitPhoto": null
+                        },
+                        {
+                            "uuid": "c9788717-b3fb-4a40-945c-2ccfb377fce4",
+                            "firstName": "Sebastian",
+                            "lastName": "Neufeld",
+                            "position": null,
+                            "jerseyNumber": "1",
+                            "portraitPhoto": null
+                        },
+                        {
+                            "uuid": "cefba7e6-f32d-4805-9a14-d31079dea89b",
+                            "firstName": "Jan",
+                            "lastName": "Schneider",
+                            "position": null,
+                            "jerseyNumber": "12",
+                            "portraitPhoto": null
+                        },
+                        {
+                            "uuid": "55d2287a-5d27-4239-a925-429b771053e3",
+                            "firstName": "Jörn",
+                            "lastName": "Schneider",
+                            "position": null,
+                            "jerseyNumber": "2",
+                            "portraitPhoto": null
+                        }
+                    ],
+                    "liberos": [
+                        {
+                            "uuid": "8c13a577-a381-468c-b2a6-85dc91401f41",
+                            "firstName": "Hendrik",
+                            "lastName": "Hofmann",
+                            "position": null,
+                            "jerseyNumber": "15",
+                            "portraitPhoto": null
+                        }
+                    ],
+                    "captain": {
+                        "uuid": "476a55fe-52df-4d7d-a85d-3989d3aa9519",
+                        "firstName": "Arne",
+                        "lastName": "Kämpfer",
+                        "position": null,
+                        "jerseyNumber": "40",
+                        "portraitPhoto": null
+                    },
+                    "officials": [
+                        {
+                            "uuid": "327f492f-17fc-49c4-97ff-ba52180c0b96",
+                            "firstName": "Jan",
+                            "lastName": "Schneider",
+                            "function": "TRAINER",
+                            "portraitPhoto": null
+                        },
+                        {
+                            "uuid": "9001f841-f4cf-4ebf-974c-54786eb9f6b2",
+                            "firstName": "Aimo-Rhys",
+                            "lastName": "Heilmann",
+                            "function": "TRAINER_ASSISTANT",
+                            "portraitPhoto": null
+                        }
+                    ]
+                },
+                "type": "CONFIRM_TEAMSQUAD"
+            },
+            {
+                "type": "INITIALIZE_MATCH",
+                "matchConfig": {
+                    "setsToWin": 2,
+                    "maximumSets": 3,
+                    "alwaysPlayMaximumNumberOfSets": false,
+                    "pointsToWinSet": 25,
+                    "pointsToWinDecidingSet": 15,
+                    "minimumPointDifference": 2,
+                    "determineDrawWinnerByBallPoints": false,
+                    "singleTeamMvpSubmissionEnabled": false,
+                    "mvpSubmissionEnabled": false,
+                    "resultSubmissionAvailableForPlayingTeams": false,
+                    "maxSetPointsForSpecialResultLoss": 2,
+                    "maxBallPointsForSpecialResultLoss": 50,
+                    "drawAllowed": false
+                },
+                "uuid": "dc33b52d-33a7-4b62-8711-b597bc48fbbd",
+                "timestamp": 1680343693460
+            }
+        ],
+        "teamLineups": {
+            "team1": {
+                "playerUuids": [
+                    "2180e643-c2c6-4ae4-bcda-8778570b86d3",
+                    "f836155e-4072-447f-a497-6f3b549b8fc5",
+                    "9732e80b-050b-428b-8a41-f28c299c0fe7",
+                    "72d6e9d9-bdb3-498f-a0c7-a3a7588363d9",
+                    "4d15b89f-d314-4953-b73b-7b6a83a73048",
+                    "73de361c-aac7-4d15-91f3-3b2cc59c4e89"
+                ],
+                "defaultLiberoUuid": null
+            },
+            "team2": {
+                "playerUuids": [
+                    "c3ab355b-9e08-41d9-86e3-d36dda81e4a0",
+                    "c9788717-b3fb-4a40-945c-2ccfb377fce4",
+                    "9bbe5371-9231-4157-913b-a7f25df5f6d0",
+                    "95e758a9-5701-4b6e-8a64-620e4a438ea5",
+                    "4604086c-0318-48cf-8d43-303927551a30",
+                    "53522b0d-4496-44df-9e9f-2a17d15aee4f"
+                ],
+                "defaultLiberoUuid": "8c13a577-a381-468c-b2a6-85dc91401f41"
+            }
+        },
+        "serving": "team2",
+        "liveStatisticsEnabled": false
+    }
+}

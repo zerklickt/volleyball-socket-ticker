@@ -7,11 +7,12 @@
 
 html, body {
     background-color: lime;
+    height: 100%;
 }
 
 #score-box {
-    width: 560px;
-    height: 240px;
+    width: 600px;
+    height: 200px;
     background-color: #111111;
     position: absolute;
     top: 5%;
@@ -30,15 +31,30 @@ html, body {
     width: 100%;
     display: grid;
     grid-template-columns: auto 18% 18%;
-    line-height: 120px;
+    line-height: 100px;
     text-align: center;
     z-index: 4;
     position: relative;
 }
 
+#service {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, 100%);
+    left: 55%;
+    width: 34px;
+    height: 34px;
+    display: block;
+    z-index: 7;
+    filter: invert(100%);
+}
+
 .team-name {
     background-color: #333333;
     height: 100%;
+    font-size: 28pt;
+    text-align: left;
+    padding-left: 15px;
 }
 
 .team-sets {
@@ -59,13 +75,14 @@ html, body {
     top: 0;
     right: 0;
     transform: translate(0%, 0);
-    width: 280px;
-    height: 120px;
+    
+    height: 100px;
     background-color: white;
     color: black;
-    line-height: 120px;
+    line-height: 100px;
     text-align: left;
     padding-left: 40px;
+    padding-right: 40px;
 }
 
 #setball {
