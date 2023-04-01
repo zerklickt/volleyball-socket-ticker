@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="animation.css">
+  </head>
+<body>
+<div class="container">
+    <section class="thead">
+      <div class="tr">
+        <div class="td"><span>VfL Sindelfingen</span></div>
+        <div class="td"><span>VfL Sindelfingen</span></div>
+      </div>
+    </section>
+    <section class="tbody">
+      <div class="tr">
+        <div class="td"><span>1 Spieler Testmann</span></div>
+        <div class="td"><span>1 Nochein Testmann</span></div>
+      </div>
+      <div class="tr">
+        <div class="td"><span>1 Spieler Testmann</span></div>
+        <div class="td"><span>1 Nochein Testmann</span></div>
+      </div>
+      <div class="tr">
+        <div class="td"><span>1 Spieler Testmann</span></div>
+        <div class="td"><span>1 Nochein Testmann</span></div>
+      </div>
+      <div class="tr">
+        <div class="td"><span>1 Spieler Testmann</span></div>
+        <div class="td"><span>1 Nochein Testmann</span></div>
+      </div>
+      <div class="tr">
+        <div class="td"><span>1 Spieler Testmann</span></div>
+        <div class="td"><span>1 Nochein Testmann</span></div>
+      </div>
+      <div class="tr">
+        <div class="td"><span>1 Spieler Testmann</span></div>
+        <div class="td"><span>1 Nochein Testmann</span></div>
+      </div>
+      <div class="tr">
+        <div class="td"><span>1 Spieler Testmann</span></div>
+        <div class="td"><span>1 Nochein Testmann</span></div>
+      </div>
+      <div class="tr">
+        <div class="td"><span>1 Spieler Testmann</span></div>
+        <div class="td"><span>1 Nochein Testmann</span></div>
+      </div>
+    <section class="tbody">
+</div>
+<script>
+  window.onload = function (){
+    const rows = document.querySelectorAll('.tbody .tr');
+
+  let delay = 0;
+  rows.forEach(row => {
+    setTimeout(() => {
+      row.style.width = "100%";
+      let subs = row.querySelectorAll(".td");
+      subs[0].style.opacity = "100%";
+      subs[1].style.opacity = "100%";
+    }, delay);
+    delay += 200; // add a delay of 0.2 seconds between each row
+  });
+  }
+
+</script>
+</body>
+</html>

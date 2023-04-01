@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="lineup.css">
+  </head>
+<body>
+<div class="container">
+    <div class="header">
+        <div><span class="td">VfL Sindelfingen</span></div>
+        <div><span class="td">Aufstellung</span></div>
+        <div><span class="td">VfL Sindelfingen</span></div>
+    </div>
+    <div class="field">
+        <div id="home-field" class="field-half">
+            <div class="player">
+                <span class="player-number">9</span><br>
+                <span class="player-name">Nick Hoschke</span>
+            </div>
+            <div class="player">
+                <span class="player-number">9</span><br>
+                <span class="player-name">Nick Hoschke</span>
+            </div>
+            <div class="player">
+                <span class="player-number">9</span><br>
+                <span class="player-name">Nick Hoschke</span>
+            </div>
+            <div class="player">
+                <span class="player-number">9</span><br>
+                <span class="player-name">Nick Hoschke</span>
+            </div>
+            <div class="player">
+                <span class="player-number">9</span><br>
+                <span class="player-name">Nick Hoschke</span>
+            </div>
+            <div class="player">
+                <span class="player-number">9</span><br>
+                <span class="player-name">Nick Hoschke</span>
+            </div>
+        </div>
+        <div id="guest-field" class="field-half">
+            <div class="player">
+                <span class="player-number">9</span><br>
+                <span class="player-name">Nick Hoschke</span>
+            </div>
+            <div class="player">
+                <span class="player-number">9</span><br>
+                <span class="player-name">Nick Hoschke</span>
+            </div>
+            <div class="player">
+                <span class="player-number">9</span><br>
+                <span class="player-name">Nick Hoschke</span>
+            </div>
+            <div class="player">
+                <span class="player-number">9</span><br>
+                <span class="player-name">Nick Hoschke</span>
+            </div>
+            <div class="player">
+                <span class="player-number">9</span><br>
+                <span class="player-name">Nick Hoschke</span>
+            </div>
+            <div class="player">
+                <span class="player-number">9</span><br>
+                <span class="player-name">Nick Hoschke</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io();
+
+      socket.on('eventUpdate_lineup', (data) => {
+        document.querySelector('#scoreHome').textContent = data.scoreHome;
+        document.querySelector('#scoreGuest').textContent = data.scoreGuest;
+        document.querySelector('#setHome').textContent = data.setHome;
+        document.querySelector('#setGuest').textContent = data.setGuest;
+      });
+
+      socket.on('eventUpdate', (data) => {
+        console.log(data.type);
+        let verticalTagOffset = "0";
+        if(data.team == "team2"){
+          verticalTagOffset = "50%";
+        } else {
+          verticalTagOffset = "0%";
+        }
+        if(data.type == "MATCH_BALL"){
+          animateSpecialTag("Matchball", verticalTagOffset);
+        }
+        else if(data.type == "SET_BALL"){
+          animateSpecialTag("Satzball", verticalTagOffset);
+        }
+        else if(data.type == "START_TIMEOUT"){
+          animateSpecialTag("Timeout", verticalTagOffset)
+        }
+      });
+
+      async function animateSpecialTag(caption, offset){
+        document.querySelector('#caption').textContent = caption;
+        let tag = document.querySelector('#specialball');
+        tag.style.top = offset;
+        tag.style.transform = "translate(100%, 0%)";
+        setTimeout(function(){
+          tag.style.transform = "translate(0%, 0%)";
+        }, 5000);
+      }
+    </script>
+</body>
+</html>

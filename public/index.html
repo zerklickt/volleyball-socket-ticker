@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Scoreboard</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <div id="score-box">
+        <div class="team-block">
+            <div class="team-name">VfL Sindelfingen</div>
+            <div class="team-sets"><span id="setHome">20</span></div>
+            <div class="team-score"><span id="scoreHome">20</span></div>
+        </div>
+        <div class="team-block">
+            <div class="team-name">VfL Sindelfingen</div>
+            <div class="team-sets"><span id="setGuest">20</span></div>
+            <div class="team-score"><span id="scoreGuest">20</span></div>
+        </div>
+        <div id="specialball" class="specialball-box">
+            <span id="caption">Matchball</span>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io();
+
+      socket.on('scoreUpdate', (data) => {
+        document.querySelector('#scoreHome').textContent = data.scoreHome;
+        document.querySelector('#scoreGuest').textContent = data.scoreGuest;
+        document.querySelector('#setHome').textContent = data.setHome;
+        document.querySelector('#setGuest').textContent = data.setGuest;
+      });
+
+      socket.on('eventUpdate_specialBall', (data) => {
+        console.log(data.type);
+        let verticalTagOffset = "0";
+        if(data.team == "team2"){
+          verticalTagOffset = "50%";
+        } else {
+          verticalTagOffset = "0%";
+        }
+        if(data.type == "MATCH_BALL"){
+          animateSpecialTag("Matchball", verticalTagOffset);
+        }
+        else if(data.type == "SET_BALL"){
+          animateSpecialTag("Satzball", verticalTagOffset);
+        }
+        else if(data.type == "START_TIMEOUT"){
+          animateSpecialTag("Timeout", verticalTagOffset)
+        }
+      });
+
+      async function animateSpecialTag(caption, offset){
+        document.querySelector('#caption').textContent = caption;
+        let tag = document.querySelector('#specialball');
+        tag.style.top = offset;
+        tag.style.transform = "translate(100%, 0%)";
+        setTimeout(function(){
+          tag.style.transform = "translate(0%, 0%)";
+        }, 5000);
+      }
+    </script>
+  </body>
+</html>
