@@ -14,7 +14,7 @@
             <div class="team-score"><span id="scoreHome">20</span></div>
         </div>
         <div class="team-block">
-            <div class="team-name" id="team-name-guest">TG Bad Waldsee</div>
+            <div class="team-name team-name-guest">TG Bad Waldsee</div>
             <div class="team-sets"><span id="setGuest">20</span></div>
             <div class="team-score"><span id="scoreGuest">20</span></div>
         </div>
@@ -24,12 +24,77 @@
         <img id="service" src="volleyball.png">
     </div>
 
+    <div id="lineup-container">
+        <div class="header">
+            <div><span class="td">VfL Sindelfingen</span></div>
+            <div><span class="td">Aufstellung</span><br><span class="td" id="lineup-set-num">Satz 3</span></div>
+            <div><span class="td team-name-guest">VfL Sindelfingen</span></div>
+        </div>
+        <div id="lineup-field">
+            <div id="home-field" class="field-half">
+                <div class="player">
+                    <span class="player-number"></span><br>
+                    <span class="player-name"></span>
+                </div>
+                <div class="player">
+                    <span class="player-number"></span><br>
+                    <span class="player-name"></span>
+                </div>
+                <div class="player">
+                    <span class="player-number"></span><br>
+                    <span class="player-name"></span>
+                </div>
+                <div class="player">
+                    <span class="player-number"></span><br>
+                    <span class="player-name"></span>
+                </div>
+                <div class="player">
+                    <span class="player-number"></span><br>
+                    <span class="player-name"></span>
+                </div>
+                <div class="player">
+                    <span class="player-number"></span><br>
+                    <span class="player-name"></span>
+                </div>
+            </div>
+            <div id="guest-field" class="field-half">
+                <div class="player">
+                    <span class="player-number"></span><br>
+                    <span class="player-name"></span>
+                </div>
+                <div class="player">
+                    <span class="player-number"></span><br>
+                    <span class="player-name"></span>
+                </div>
+                <div class="player">
+                    <span class="player-number"></span><br>
+                    <span class="player-name"></span>
+                </div>
+                <div class="player">
+                    <span class="player-number"></span><br>
+                    <span class="player-name"></span>
+                </div>
+                <div class="player">
+                    <span class="player-number"></span><br>
+                    <span class="player-name"></span>
+                </div>
+                <div class="player">
+                    <span class="player-number"></span><br>
+                    <span class="player-name"></span>
+                </div>
+            </div>
+            <img id="volleyball" src="volleyball.png">
+        </div>
+    </div>
+
     <script src="/socket.io/socket.io.js"></script>
     <script>
       const socket = io();
 
       socket.on('teamUpdate', (data) => {
-        document.querySelector('#team-name-guest').textContent = data.guestTeam;
+        document.querySelectorAll('.team-name-guest').forEach(element => {
+          element.textContent = data.guestTeam;
+        });
       });
 
       socket.on('scoreUpdate', (data) => {
@@ -68,6 +133,71 @@
           tag.style.transform = "translate(0%, 0%)";
         }, duration);
       }
+    </script>
+    <!-- NEW SET LINEUP SCREEN -->
+    <script>
+
+        window.team1 = {};
+        window.team2 = {};
+
+        socket.on('playersUpdate', (data) => {
+            console.log("team update called");
+            data.team1.forEach(element => {
+                window.team1[element.uuid] = element;
+            });
+            data.team2.forEach(element => {
+                window.team2[element.uuid] = element;
+            });
+        });
+    
+        socket.on('eventUpdate_lineup', (data) => {
+
+          document.getElementById('score-box').style.visibility = "hidden";
+
+            console.log("Lineup update called");
+            window.data = data;
+
+            document.querySelector('#lineup-set-num').innerHTML = "Satz " + data.set;
+
+            let ballicon = document.querySelector('#volleyball');
+            if(data.service == "team1"){
+                ballicon.style.top = "auto";
+                ballicon.style.right = "auto";
+                ballicon.style.left = "3%";
+                ballicon.style.bottom = "3%";
+                ballicon.style.transform = "translate(-50%, 50%)";
+            } else {
+                ballicon.style.bottom = "auto";
+                ballicon.style.left = "auto";
+                ballicon.style.top = "3%";
+                ballicon.style.right = "3%";
+                ballicon.style.transform = "translate(50%, -50%)";
+            }
+
+            let homeside = document.querySelector('#home-field');
+            let guestside = document.querySelector('#guest-field');
+
+            let orderTeam1 = [4, 3, 5, 2, 0, 1];
+            let orderTeam2 = [1, 0, 2, 5, 3, 4];
+
+            let i = 0;
+
+            Array.from(homeside.children).forEach(element => {
+                element.querySelector('.player-number').innerHTML = window.team1[window.data.team1.playerUuids[orderTeam1[i]]].jerseyNumber;
+                element.querySelector('.player-name').innerHTML = window.team1[window.data.team1.playerUuids[orderTeam1[i++]]].lastName;
+            });
+            i = 0;
+            Array.from(guestside.children).forEach(element => {
+                element.querySelector('.player-number').innerHTML = window.team2[window.data.team2.playerUuids[orderTeam2[i]]].jerseyNumber;
+                element.querySelector('.player-name').innerHTML = window.team2[window.data.team2.playerUuids[orderTeam2[i++]]].lastName;
+            });
+
+            document.querySelector('#lineup-container').style.opacity = "1";
+            setTimeout(function(){
+              document.querySelector('#lineup-container').style.opacity = "0";
+              document.getElementById('score-box').style.visibility = "visible";
+            }, 15000);
+        });
     </script>
   </body>
 </html>

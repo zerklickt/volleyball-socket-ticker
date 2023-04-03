@@ -25,6 +25,7 @@ body, html {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 5px;
 }
 
 .header > div {
@@ -33,21 +34,26 @@ body, html {
     text-align: center;
 }
 
-.container {
+#lineup-container {
     width: 900px;
     height: 600px;
     display: grid;
-    grid-template-rows: 70px auto;
+    row-gap: 5px;
+    grid-template-rows: 80px auto;
     background-color: #30b1e0;
     padding: 25px;
+    transition: opacity 2s;
+    opacity: 0;
 }
 
-.field {
+#lineup-field {
     width: 100%;
     height: 100%;
     background: rgb(252,169,163);
     background: linear-gradient(90deg, rgba(252,169,163,1) 0%, rgba(252,169,163,1) 33%, rgba(253,151,127,1) 33%, rgba(253,151,127,1) 66%, rgba(252,169,163,1) 66%);
     display: flex;
+    overflow: visible;
+    position: relative;
 }
 
 #home-field {
@@ -55,25 +61,41 @@ body, html {
 }
 
 .field-half {
-    flex: 1 1 auto;
+    flex: 1 1 50%;
     display: grid;
-    grid-template-columns: 50% auto;
-    grid-template-rows: 33% 33% auto;
-    column-gap: 8px;
-    row-gap: 8px;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto;
+    column-gap: 35px;
+    row-gap: 35px;
     text-align: center;
     padding: 8px;
+    padding: 35px;
 }
 
 .player {
     padding: 10px;
-    background-color: rgba(0,0,0, 0.1);
+    background-color: rgba(0,0,0, 0.7);
+    border-radius: 45px;
 }
 
 .player-name {
-    font-size: 14pt;
+    font-size: 12pt;
 }
 
 .player-number {
-    font-size: 36pt;
+    font-size: 40pt;
+    line-height: 45px;
+}
+
+#volleyball {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    left: 3%;
+    transform: translate(-50%, 50%);
+    z-index: 1;
+    bottom: 3%;
+    top: auto;
+    right: auto;
+    filter: invert(100%);
 }

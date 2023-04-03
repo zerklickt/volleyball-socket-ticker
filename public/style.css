@@ -10,28 +10,34 @@ html, body {
     height: 100%;
 }
 
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #score-box {
-    width: 600px;
-    height: 200px;
+    width: 480px;
+    height: 160px;
     background-color: #111111;
     position: absolute;
     top: 5%;
-    left: 5%;
+    left: 3%;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 36pt;
+    font-size: 30pt;
 }
 
 .team-block {
     height: 50%;
     width: 100%;
     display: grid;
-    grid-template-columns: auto 18% 18%;
-    line-height: 100px;
+    grid-template-columns: auto 17% 17%;
+    line-height: 80px;
     text-align: center;
     z-index: 4;
     position: relative;
@@ -40,7 +46,7 @@ html, body {
 #service {
     position: absolute;
     top: 50%;
-    transform: translate(0, 100%);
+    transform: translate(0, 70%);
     left: 55%;
     width: 34px;
     height: 34px;
@@ -52,7 +58,7 @@ html, body {
 .team-name {
     background-color: #333333;
     height: 100%;
-    font-size: 28pt;
+    font-size: 24pt;
     text-align: left;
     padding-left: 15px;
 }
@@ -76,10 +82,10 @@ html, body {
     right: 0;
     transform: translate(0%, 0);
     
-    height: 100px;
+    height: 80px;
     background-color: white;
     color: black;
-    line-height: 100px;
+    line-height: 80px;
     text-align: left;
     padding-left: 40px;
     padding-right: 40px;
@@ -87,4 +93,93 @@ html, body {
 
 #setball {
     top:50%;
+}
+
+
+
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+.header > div {
+    width: 30%;
+    display: inline-block;
+    text-align: center;
+}
+
+#lineup-container {
+    width: 1350px;
+    height: 900px;
+    display: grid;
+    row-gap: 5px;
+    grid-template-rows: 80px auto;
+    background-color: #30b1e0;
+    padding: 25px;
+    transition: opacity 2s;
+    opacity: 0;
+    color: white;
+    overflow: hidden;
+    font-size: 22pt;
+}
+
+#lineup-field {
+    width: 100%;
+    height: 100%;
+    background: rgb(252,169,163);
+    background: linear-gradient(90deg, rgba(252,169,163,1) 0%, rgba(252,169,163,1) 33%, rgba(253,151,127,1) 33%, rgba(253,151,127,1) 66%, rgba(252,169,163,1) 66%);
+    display: flex;
+    overflow: visible;
+    position: relative;
+}
+
+#home-field {
+    border-right: 8px solid white;
+}
+
+.field-half {
+    flex: 1 1 50%;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto;
+    column-gap: 75px;
+    row-gap: 75px;
+    text-align: center;
+    padding: 8px;
+    padding: 35px;
+}
+
+.player {
+    padding: 10px;
+    background-color: rgba(0,0,0, 0.7);
+    border-radius: 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.player-name {
+    font-size: 16pt;
+}
+
+.player-number {
+    font-size: 42pt;
+    line-height: 45px;
+}
+
+#volleyball {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    left: 3%;
+    transform: translate(-50%, 50%);
+    z-index: 1;
+    bottom: 3%;
+    top: auto;
+    right: auto;
+    filter: invert(100%);
 }

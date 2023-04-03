@@ -5,13 +5,13 @@
     <link rel="stylesheet" href="lineup.css">
   </head>
 <body>
-<div class="container">
+<div id="lineup-container">
     <div class="header">
         <div><span class="td">VfL Sindelfingen</span></div>
-        <div><span class="td">Aufstellung</span></div>
-        <div><span class="td">VfL Sindelfingen</span></div>
+        <div><span class="td">Aufstellung</span><br><span class="td" id="lineup-set-num">Satz 3</span></div>
+        <div><span class="td team-name-guest">VfL Sindelfingen</span></div>
     </div>
-    <div class="field">
+    <div id="lineup-field">
         <div id="home-field" class="field-half">
             <div class="player">
                 <span class="player-number">9</span><br>
@@ -64,48 +64,71 @@
                 <span class="player-name">Nick Hoschke</span>
             </div>
         </div>
+        <img id="volleyball" src="volleyball.png">
     </div>
 </div>
 
 <script src="/socket.io/socket.io.js"></script>
     <script>
-      const socket = io();
+        const socket = io();
 
-      socket.on('eventUpdate_lineup', (data) => {
-        document.querySelector('#scoreHome').textContent = data.scoreHome;
-        document.querySelector('#scoreGuest').textContent = data.scoreGuest;
-        document.querySelector('#setHome').textContent = data.setHome;
-        document.querySelector('#setGuest').textContent = data.setGuest;
-      });
+        window.team1 = {};
+        window.team2 = {};
 
-      socket.on('eventUpdate', (data) => {
-        console.log(data.type);
-        let verticalTagOffset = "0";
-        if(data.team == "team2"){
-          verticalTagOffset = "50%";
-        } else {
-          verticalTagOffset = "0%";
-        }
-        if(data.type == "MATCH_BALL"){
-          animateSpecialTag("Matchball", verticalTagOffset);
-        }
-        else if(data.type == "SET_BALL"){
-          animateSpecialTag("Satzball", verticalTagOffset);
-        }
-        else if(data.type == "START_TIMEOUT"){
-          animateSpecialTag("Timeout", verticalTagOffset)
-        }
-      });
+        socket.on('playersUpdate', (data) => {
+            console.log("team update called");
+            data.team1.forEach(element => {
+                window.team1[element.uuid] = element;
+            });
+            data.team2.forEach(element => {
+                window.team2[element.uuid] = element;
+            });
+        });
+    
+        socket.on('eventUpdate_lineup', (data) => {
+            console.log("Lineup update called");
+            window.data = data;
 
-      async function animateSpecialTag(caption, offset){
-        document.querySelector('#caption').textContent = caption;
-        let tag = document.querySelector('#specialball');
-        tag.style.top = offset;
-        tag.style.transform = "translate(100%, 0%)";
-        setTimeout(function(){
-          tag.style.transform = "translate(0%, 0%)";
-        }, 5000);
-      }
+            document.querySelector('#lineup-set-num').innerHTML = "Satz " + data.set;
+
+            let ballicon = document.querySelector('#volleyball');
+            if(data.service == "team1"){
+                ballicon.style.top = "auto";
+                ballicon.style.right = "auto";
+                ballicon.style.left = "3%";
+                ballicon.style.bottom = "3%";
+                ballicon.style.transform = "translate(-50%, 50%)";
+            } else {
+                ballicon.style.bottom = "auto";
+                ballicon.style.left = "auto";
+                ballicon.style.top = "3%";
+                ballicon.style.right = "3%";
+                ballicon.style.transform = "translate(50%, -50%)";
+            }
+
+            let homeside = document.querySelector('#home-field');
+            let guestside = document.querySelector('#guest-field');
+
+            let orderTeam1 = [4, 3, 5, 2, 0, 1];
+            let orderTeam2 = [1, 0, 2, 5, 3, 4];
+
+            let i = 0;
+
+            Array.from(homeside.children).forEach(element => {
+                element.querySelector('.player-number').innerHTML = window.team1[window.data.team1.playerUuids[orderTeam1[i]]].jerseyNumber;
+                element.querySelector('.player-name').innerHTML = window.team1[window.data.team1.playerUuids[orderTeam1[i++]]].lastName;
+            });
+            i = 0;
+            Array.from(guestside.children).forEach(element => {
+                element.querySelector('.player-number').innerHTML = window.team2[window.data.team2.playerUuids[orderTeam2[i]]].jerseyNumber;
+                element.querySelector('.player-name').innerHTML = window.team2[window.data.team2.playerUuids[orderTeam2[i++]]].lastName;
+            });
+
+            document.querySelector('#lineup-container').style.opacity = "1";
+            setTimeout(function(){
+            document.querySelector('#lineup-container').style.opacity = "0";
+            }, 15000);
+        });
     </script>
 </body>
 </html>

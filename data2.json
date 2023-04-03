@@ -1,7 +1,7 @@
 {
     "type": "MATCH_UPDATE",
     "payload": {
-        "matchUuid": "41655573-fa3c-4c2b-9d7a-2ef540c73d92",
+        "matchUuid": "6d6e7ec4-5af2-4d86-87e8-5cd81c173298",
         "matchSeriesUuid": "caa4f32e-0913-4826-a24d-0aac91c93697",
         "finished": false,
         "finalized": false,
@@ -34,7 +34,8 @@
         ],
         "eventHistory": [
             {
-                "uuid": "67258a6d-7196-405a-9e22-3404673f36d2",
+                "uuid": "4fa248b5-43cb-4e4e-aa2c-2aebadb39964",
+                "setNumber": 2,
                 "setScore": {
                     "team1": 9,
                     "team2": 13
@@ -43,45 +44,29 @@
                     "team1": 0,
                     "team2": 1
                 },
-                "timestamp": 1680347119367,
-                "teamCode": "team1",
-                "numberOfSetBalls": 6,
-                "type": "START_TIMEOUT"
-            },
-            {
-                "uuid": "bd67700b-b750-421e-885f-b38fc41f61fb",
-                "setNumber": 2,
-                "setScore": {
-                    "team1": 0,
-                    "team2": 0
-                },
-                "setPoints": {
-                    "team1": 0,
-                    "team2": 1
-                },
-                "timestamp": 1680347449247,
+                "timestamp": 1679826355815,
                 "lineups": {
                     "team1": {
                         "playerUuids": [
-                            "4d15b89f-d314-4953-b73b-7b6a83a73048",
-                            "73de361c-aac7-4d15-91f3-3b2cc59c4e89",
-                            "43ba09c3-e88d-40b3-ae61-7e4210c8a559",
-                            "f836155e-4072-447f-a497-6f3b549b8fc5",
-                            "9732e80b-050b-428b-8a41-f28c299c0fe7",
-                            "72d6e9d9-bdb3-498f-a0c7-a3a7588363d9"
+                            "1b27df2c-8201-4346-885a-408cfd37db7e",
+                            "7c68e0ee-4808-40eb-a173-fa2a9240a409",
+                            "00b66709-dc24-460d-8483-87dfd8b62960",
+                            "b80c1f45-a73b-4149-8712-14447723ca72",
+                            "678bc8ae-c21f-4568-b17b-88e61d902daa",
+                            "4a240ebd-083c-4771-a1a0-692c6ac7a8ca"
                         ],
                         "defaultLiberoUuid": null
                     },
                     "team2": {
                         "playerUuids": [
-                            "95e758a9-5701-4b6e-8a64-620e4a438ea5",
-                            "4604086c-0318-48cf-8d43-303927551a30",
-                            "53522b0d-4496-44df-9e9f-2a17d15aee4f",
-                            "c3ab355b-9e08-41d9-86e3-d36dda81e4a0",
-                            "c9788717-b3fb-4a40-945c-2ccfb377fce4",
-                            "9bbe5371-9231-4157-913b-a7f25df5f6d0"
+                            "36f4a628-3a31-4ede-8d83-4b95afbb9667",
+                            "0709bdb5-b89d-4c62-bc26-1672ed858b6b",
+                            "07985293-f063-4df3-9006-498297d1d3b3",
+                            "594e1fa5-fb3c-4876-9e57-a1281a77b8b7",
+                            "2db955c1-0f13-4375-b7d0-45421d9f1a46",
+                            "4646e066-dc21-490c-b263-7edc98c2cb72"
                         ],
-                        "defaultLiberoUuid": "8c13a577-a381-468c-b2a6-85dc91401f41"
+                        "defaultLiberoUuid": "87693990-a4fb-4416-9098-2b030efbe218"
                     }
                 },
                 "type": "START_SET"
@@ -784,7 +769,7 @@
                 "defaultLiberoUuid": "8c13a577-a381-468c-b2a6-85dc91401f41"
             }
         },
-        "serving": "team2",
+        "serving": "team1",
         "liveStatisticsEnabled": false
     }
 }

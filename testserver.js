@@ -9,7 +9,8 @@ wss.on('listening', function() {
 
 wss.on('connection', function connection(ws) {
   console.log('WebSocket client connected.');
-
+  
+  ws.send(fs.readFileSync('./data.json', 'utf8'));
   // Send the contents of data.json every 20 seconds
   const intervalId = setInterval(() => {
     try {
