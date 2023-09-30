@@ -12,9 +12,13 @@ const options = {
   headers,
   perMessageDeflate: false // disable compression
 };
-
-//const ws = new WebSocket('wss://backend.sams-ticker.de/dvv', options);
-const ws = new WebSocket('ws://localhost:8080', options);
+var ws;
+if(process.argv.includes("--debug")){
+  ws = new WebSocket('ws://localhost:8080', options);
+  console.log("Using local debug server on ws://localhost:8080");
+} else {
+  ws = new WebSocket('wss://backend.sams-ticker.de/dvv', options);
+}
 
 ws.on('open', () => {
   console.log('Connected to wss server');

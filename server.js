@@ -18,8 +18,10 @@ let team2;
 
 let lastEvent = "";
 
-//console.log(process.argv.length);
-if(process.argv.length != 4){
+// params are: 
+//  1. game UUID
+//  2. guest team
+if(process.argv.length < 4){
     process.exit();
 }
 
@@ -48,11 +50,10 @@ ws.on('message', (data) => {
             if(jsonobj.payload.matchUuid != gameUUID)
                 return;
             let newjsonobj = jsonobj.payload;
-            //console.log("updated");
             updateScore(newjsonobj);
             io.emit('scoreUpdate', { scoreHome, scoreGuest, setHome, setGuest, service });
             handleEventUpdate(newjsonobj);
-            console.log("Match Update sent");
+            console.log("Match Update: " + scoreHome + ":" + scoreGuest + " [" + setHome + ":" + setGuest + "]");
             break;
         case "FETCH_ASSOCIATION_TICKER_RESPONSE":
             reloadTeams(jsonobj.payload.matchStates[gameUUID].eventHistory);
@@ -105,6 +106,7 @@ function handleEventUpdate(jsonobj){
                         "type": event.type,
                         "team": jsonobj.eventHistory[0].teamCode
                     });
+                    console.log(`Special Ball: ${event.type} for ${jsonobj.eventHistory[0].teamCode === "team1" ? "home" : "guest"} team`);
                     break;
                 case "LOCK_STARTING_SIX":
                 case "START_SET":
@@ -114,6 +116,7 @@ function handleEventUpdate(jsonobj){
                         "set": (event.setPoints.team1 + event.setPoints.team2 + 1),
                         "service": jsonobj.serving
                     });
+                    console.log("Lineup received");
                     break;
                 case "CONFIRM_TEAMSQUAD":
                     reloadTeams(jsonobj.eventHistory);
