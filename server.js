@@ -22,6 +22,7 @@ let lastEvent = "";
 //  1. game UUID
 //  2. guest team
 if(process.argv.length < 4){
+    console.error("Invalid amount of parameters. Usage: \nnode server.js \"<game UUID>\" \"<display name>\"");
     process.exit();
 }
 
@@ -56,7 +57,12 @@ ws.on('message', (data) => {
             console.log("Match Update: " + scoreHome + ":" + scoreGuest + " [" + setHome + ":" + setGuest + "]");
             break;
         case "FETCH_ASSOCIATION_TICKER_RESPONSE":
+            if(jsonobj.payload.matchStates[gameUUID] === undefined){
+                console.error("\x1b[31m%s\x1b[0m", "Error: No match found for uuid");
+                process.exit(1);
+            }
             reloadTeams(jsonobj.payload.matchStates[gameUUID].eventHistory);
+            updateScore(jsonobj.payload.matchStates[gameUUID]);
             if(team1 == null || team2 == null)
                 return;
             io.emit('playersUpdate', {
