@@ -32,6 +32,11 @@ let gameUUID = process.argv[2];
 // browser connects to server
 io.on('connection', (socket) => {
     console.log("\x1b[38;5;243m%s\x1b[0m", "User connected");
+
+    socket.on('disconnect', () => {
+        console.log("\x1b[38;5;243m%s\x1b[0m", "User disconnected");
+    });
+    
     if(!gameActive)
         return;
     socket.emit('scoreUpdate', { scoreHome, scoreGuest, setHome, setGuest });
@@ -43,9 +48,6 @@ io.on('connection', (socket) => {
         team1, team2
     }); 
 
-    socket.on('disconnect', () => {
-        console.log("\x1b[38;5;243m%s\x1b[0m", "User disconnected");
-    });
 });
 
 ws.on('message', (data) => {
