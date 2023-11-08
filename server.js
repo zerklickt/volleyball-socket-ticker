@@ -17,6 +17,7 @@ let team1;
 let team2;
 
 let lastEvent = "";
+let gameActive = undefined;
 
 // params are: 
 //  1. game UUID
@@ -28,18 +29,23 @@ if(process.argv.length < 4){
 
 let gameUUID = process.argv[2];
 
+// browser connects to server
 io.on('connection', (socket) => {
-  console.log('A user connected');
+    console.log("\x1b[38;5;243m%s\x1b[0m", "User connected");
+    if(!gameActive)
+        return;
+    socket.emit('scoreUpdate', { scoreHome, scoreGuest, setHome, setGuest });
+    socket.emit('teamUpdate', {
+        // display name for guest team
+        guestTeam: process.argv[3]
+    });
+    socket.emit('playersUpdate', {
+        team1, team2
+    }); 
 
-  socket.emit('scoreUpdate', { scoreHome, scoreGuest, setHome, setGuest });
-  socket.emit('teamUpdate', {guestTeam: process.argv[3]});
-  socket.emit('playersUpdate', {
-    team1, team2
-}); 
-
-  socket.on('disconnect', () => {
-    console.log('A user disconnected');
-  });
+    socket.on('disconnect', () => {
+        console.log("\x1b[38;5;243m%s\x1b[0m", "User disconnected");
+    });
 });
 
 ws.on('message', (data) => {
@@ -58,9 +64,18 @@ ws.on('message', (data) => {
             break;
         case "FETCH_ASSOCIATION_TICKER_RESPONSE":
             if(jsonobj.payload.matchStates[gameUUID] === undefined){
-                console.error("\x1b[31m%s\x1b[0m", "Error: No match found for uuid");
-                process.exit(1);
+                if(gameActive === undefined){
+                    if(isGameRegistered(jsonobj)){
+                        console.log("\x1b[33m%s\x1b[0m", "Found registered match, waiting for match start...");
+                        gameActive = false;
+                    } else {
+                        console.error("\x1b[31m%s\x1b[0m", "Error: No match found for UUID");
+                        process.exit(1);
+                    }
+                }
+                return;
             }
+            gameActive = true;
             reloadTeams(jsonobj.payload.matchStates[gameUUID].eventHistory);
             updateScore(jsonobj.payload.matchStates[gameUUID]);
             if(team1 == null || team2 == null)
@@ -68,7 +83,7 @@ ws.on('message', (data) => {
             io.emit('playersUpdate', {
                 team1, team2
             });
-            console.log("Received Association Update");
+            console.log("\x1b[38;5;243m%s\x1b[0m", "Received game association update");
             break;
         default:
             return;
@@ -138,6 +153,17 @@ function handleEventUpdate(jsonobj){
     }
 }
 
+function isGameRegistered(jsonobj){
+    for(matchDay of jsonobj.payload.matchDays){
+        for(match of matchDay.matches){
+            if(match.id === gameUUID){
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
 http.listen(3000, () => {
-  console.log('Server listening on port 3000');
+    console.log(`Server started on port 3000`);
 });
