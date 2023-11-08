@@ -36,14 +36,15 @@ io.on('connection', (socket) => {
     socket.on('disconnect', () => {
         console.log("\x1b[38;5;243m%s\x1b[0m", "User disconnected");
     });
-    
-    if(!gameActive)
-        return;
-    socket.emit('scoreUpdate', { scoreHome, scoreGuest, setHome, setGuest });
+
     socket.emit('teamUpdate', {
         // display name for guest team
         guestTeam: process.argv[3]
     });
+
+    if(!gameActive)
+        return;
+    socket.emit('scoreUpdate', { scoreHome, scoreGuest, setHome, setGuest });
     socket.emit('playersUpdate', {
         team1, team2
     }); 
