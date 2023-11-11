@@ -5,6 +5,8 @@ const io = require('socket.io')(http);
 
 const ws = require('./websocket');
 
+const obs = require('./obssocket');
+
 app.use(express.static('public'));
 
 let scoreHome = 0;
@@ -26,6 +28,8 @@ if(process.argv.length < 4){
     console.error("Invalid amount of parameters. Usage: \nnode server.js \"<game UUID>\" \"<display name>\"");
     process.exit();
 }
+
+obs.connect();
 
 let gameUUID = process.argv[2];
 
@@ -86,7 +90,7 @@ ws.on('message', (data) => {
             io.emit('playersUpdate', {
                 team1, team2
             });
-            console.log("\x1b[38;5;243m%s\x1b[0m", "Received game association update");
+            console.log("\x1b[32m%s\x1b[0m", "Found match and received game association update");
             break;
         default:
             return;
@@ -131,6 +135,12 @@ function handleEventUpdate(jsonobj){
                         "team": jsonobj.eventHistory[0].teamCode
                     });
                     console.log(`Special Ball: ${event.type} for ${jsonobj.eventHistory[0].teamCode === "team1" ? "home" : "guest"} team`);
+                    if(event.type === "START_TIMEOUT"){
+                        obs.showAds();
+                        setTimeout(() => {
+                            obs.hideAds();
+                        }, 30000);
+                    }
                     break;
                 case "LOCK_STARTING_SIX":
                 case "START_SET":
