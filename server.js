@@ -82,15 +82,18 @@ ws.on('message', (data) => {
                 }
                 return;
             }
-            gameActive = true;
+            console.log("\x1b[32m%s\x1b[0m", "Found match and received game association update");
             reloadTeams(jsonobj.payload.matchStates[gameUUID].eventHistory);
-            updateScore(jsonobj.payload.matchStates[gameUUID]);
-            if(team1 == null || team2 == null)
+            if(!team1 || !team2)
                 return;
             io.emit('playersUpdate', {
                 team1, team2
             });
-            console.log("\x1b[32m%s\x1b[0m", "Found match and received game association update");
+            updateScore(jsonobj.payload.matchStates[gameUUID]);
+            if(!scoreHome || !scoreGuest || !service)
+                return;
+            gameActive = true;
+            io.emit('scoreUpdate', { scoreHome, scoreGuest, setHome, setGuest, service });
             break;
         default:
             return;

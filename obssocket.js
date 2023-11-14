@@ -54,7 +54,25 @@ async function hideAds(){
     });
 }
 
+async function rampVolumeUp(){
+    let errorHappened = false;
+    for(let i = 0; i < 9; i++){
+        obs.call('SetInputVolume', {
+            inputName: "Desktop-Audio",
+            inputVolumeDb: (-95 + (45 * i / 8)) 
+        }).then(() => {        
+            //console.log("Successfully disabled ads");
+        }).catch((error) => {
+            console.error("Error ramping volume up: " + error);
+            errorHappened = true;
+        });
+        if(errorHappened) break;
+        await new Promise(r => setTimeout(r, 120));
+    }
+}
+
 module.exports.connect = connect;
 module.exports.showAds = showAds;
 module.exports.hideAds = hideAds;
+module.exports.rampVolumeUp = rampVolumeUp;
 
