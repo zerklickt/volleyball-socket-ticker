@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="card.css">
+  </head>
+<body>
+<div id="lowerthird-container">
+    <div id="top-expansion">
+        <div style="margin: 0; width: 10px; height: 15px; display: inline-block; background-color: red; margin: 0px 10px; border-radius: 2px;"></div><span>Rote Karte</span>
+    </div>
+    <div id="playername-box">
+        <img src="VfL_Sindelfingen.png"/>
+        <span style="text-align: center;">Harald Töpfer</span>
+    </div>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+
+        window.team1 = {};
+        window.team2 = {};
+
+        socket.on('playersUpdate', (data) => {
+            console.log("team update called");
+            data.team1.forEach(element => {
+                window.team1[element.uuid] = element;
+            });
+            data.team2.forEach(element => {
+                window.team2[element.uuid] = element;
+            });
+        });
+    </script>
+</body>
+</html>

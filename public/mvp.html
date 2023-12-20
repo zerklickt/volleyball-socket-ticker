@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="mvp.css">
+  </head>
+<body>
+<div id="lowerthird-container">
+    <div id="lowerthird-top">
+        <img src="Kevinkugel.svg"/>
+    </div>
+    <div id="top-expansion">
+        <p>Most Valuable Player</p>
+    </div>
+    <div id="playername-box">
+        <span style="text-align: center;">Hans-Christian Andersen</span>
+        <img src="VfL_Sindelfingen.png"/>
+        <div style="width: 250px;"></div>
+        <img src="VfL_Sindelfingen.png"/>
+        <span style="text-align: center;">Harald Töpfer</span>
+    </div>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+
+        window.team1 = {};
+        window.team2 = {};
+
+        socket.on('playersUpdate', (data) => {
+            console.log("team update called");
+            data.team1.forEach(element => {
+                window.team1[element.uuid] = element;
+            });
+            data.team2.forEach(element => {
+                window.team2[element.uuid] = element;
+            });
+        });
+    </script>
+</body>
+</html>
